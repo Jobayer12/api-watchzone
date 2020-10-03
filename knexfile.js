@@ -27,24 +27,17 @@ module.exports = {
     },
     production: {
         client: "pg",
-        connection: process.env.PRODUCTION_DATABASE_URL,
+        connection: "postgres://rlibaojipupkkk:f3531e9e8b333b000ea00ad0c7d7b5ff8f14ccde01ec8b90f0ad30fc3460bea3@ec2-54-75-244-161.eu-west-1.compute.amazonaws.com:5432/d946juh433t2vl",
         pool: {
             min: 2,
             max: 10,
         },
-        ssl: true,
-        dialect: 'postgres',
-        dialectOptions: {
-            ssl: {
-                rejectUnauthorized: false
-            }
-        },
         migrations: {
-            tablename: process.env.DATABASE_TABLENAME,
+            tablename: "migrations",
             directory: __dirname + '/./database/migrations',
         },
         seeds: {
-            tablename: process.env.DATABASE_TABLENAME,
+            tablename: "migrations",
             directory: __dirname + '/./database/seeds',
         }
     }
