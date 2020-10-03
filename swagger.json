@@ -9,7 +9,7 @@
       "url": "https://opensource.org/licenses/MIT"
     }
   },
-  "host": "https://api-timezone.herokuapp.com",
+  "host": "api-timezone.herokuapp.com",
   "basePath": "/",
   "tags": [
     {
