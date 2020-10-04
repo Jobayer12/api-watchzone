@@ -5,8 +5,7 @@
     "title": "My User Project CRUD",
     "description": "My User Project Application API",
     "license": {
-      "name": "MIT",
-      "url": "https://opensource.org/licenses/MIT"
+      "name": "MIT"
     }
   },
   "host": "api-timezone.herokuapp.com",
@@ -53,10 +52,38 @@
         }
       }
     },
+    "/api/v1/update/profile": {
+      "put": {
+        "tags": [
+          "Users"
+        ],
+        "parameters": [
+          {
+            "name": "user",
+            "in": "body",
+            "description": "Update profile info",
+            "schema": {
+              "$ref": "#/definitions/updateUser"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/response"
+            }
+          }
+        }
+      }
+    },
     "/api/v1/login": {
       "post": {
         "tags": [
-          "Login"
+          "Users"
         ],
         "parameters": [
           {
@@ -67,7 +94,7 @@
               "$ref": "#/definitions/Login"
             }
           }
-          ],
+        ],
         "produces": [
           "application/json"
         ],
@@ -84,7 +111,7 @@
     "/api/v1/register": {
       "post": {
         "tags": [
-          "Login"
+          "Users"
         ],
         "parameters": [
           {
@@ -98,6 +125,47 @@
         ],
         "produces": [
           "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/response"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/contact-us": {
+      "post": {
+        "tags": [
+          "Contact"
+        ],
+        "parameters": [
+          {
+            "name": "contact",
+            "in": "body",
+            "description": "Contact us",
+            "schema": {
+              "$ref": "#/definitions/ContactUs"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/response"
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Contact"
         ],
         "responses": {
           "200": {
@@ -155,6 +223,28 @@
           "type": "integer"
         }
 
+      }
+    },
+    "ContactUs": {
+      "required": [
+        "message",
+        "name",
+        "email",
+        "subject"
+      ],
+      "properties": {
+        "message": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "subject": {
+          "type": "string"
+        }
       }
     },
     "Registration": {

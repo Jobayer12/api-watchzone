@@ -1,14 +1,14 @@
 const bcrypt = require('bcryptjs');
-const {loadUser, createLocalUser, loginUser} = require('../database-service/user.database-service')
-const {userValidation} = require('../../../validation');
+const {loadUser, createLocalUser, loginUser, updateUserInfo} = require('../database-service/user.database-service')
+const {userValidation} = require('../validation');
 const {generateToken} = require('../../../JWT');
 
 exports.getAllUsers =async ()=>{
     return await loadUser({'u.deleted_at': null});
 }
+
 exports.createLocalUser = async user =>{
     const createUserDataValidation = await userValidation(user);
-
     const checkUserExistsOrNot = await loadUser({'u.deleted_at':null, 'u.email': user.email.toLowerCase()});
     if(checkUserExistsOrNot
         &&
@@ -41,4 +41,13 @@ exports.localUserLogin = async user =>{
         }
     }
     throw  new Error('Invalid auth credentials');
+}
+
+exports.updateUserInfo = async (id, user) =>{
+    await userValidation(user);
+    const checkUser = await loadUser({'u.deleted_at':null, 'u.id': id});
+    if(checkUser && checkUser.length > 0){
+        return await  updateUserInfo(id, user);
+    }
+    throw new Error('user not exists');
 }

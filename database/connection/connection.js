@@ -1,7 +1,8 @@
 const knex = require('knex');
-const dbConfig  = require('../config/dbConfig');
+const dbConfig  = require('./dbConfig');
 const getConnection = async () => {
     let knexConnection;
+
     if (!knexConnection) {
         knexConnection = knex(dbConfig);
     }

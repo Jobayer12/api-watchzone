@@ -32,3 +32,16 @@ exports.loginUser = async searchClause =>{
         return user;
     });
 }
+exports.updateUserInfo = async (id, user) =>{
+    const knex = await getConnection();
+    return knexnest(knex
+        .where('id', +id)
+        .update(user, ['id'])
+        .into('users'))
+        .then(data => {
+            if (data)
+                return data;
+            else
+                throw new  Error('Could not update profile');
+        });
+}

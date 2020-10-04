@@ -17,11 +17,11 @@ module.exports = {
         acquireConnectionTimeout: 20000,
         migrations: {
             tableName: 'migrations',
-            directory: __dirname + '/./database/migrations',
+            directory: __dirname + '/../migrations',
             loadExtensions: ['.js']
         },
         seeds: {
-            directory: __dirname + '/./database/seeds',
+            directory: __dirname + '/../seeds',
             loadExtensions: ['.js']
         },
     },

@@ -1,5 +1,5 @@
 
-exports.up = function(knex) {
+exports.up = async function(knex) {
     return knex('users').insert({
         first_name: 'Jobayer',
         last_name: 'Ahmed',
