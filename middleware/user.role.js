@@ -12,14 +12,18 @@ exports.userLoginTokenVerified = async (req, res, next) => {
         } else {
             return res.status(404).json({
                 statusCode: 404,
-                message: 'Invalid token',
+                errors:{
+                    message: 'Invalid token',
+                },
                 data: null
             })
         }
     } catch (e) {
         return res.status(404).json({
             statusCode: 404,
-            message: e.message,
+            errors:{
+                message: e.message,
+            },
             data: null
         })
     }

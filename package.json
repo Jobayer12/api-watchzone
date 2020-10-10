@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "start:dev": "nodemon index.js"
+    "prebuild": "rm -rf node_modules && npm i",
+    "start:dev": "nodemon index.js",
+    "start": "node index.js"
   },
   "engines": {
     "node": "12.x"

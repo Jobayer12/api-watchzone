@@ -27,7 +27,7 @@ module.exports = {
     },
     production: {
         client: "pg",
-        connection: "postgres://rlibaojipupkkk:f3531e9e8b333b000ea00ad0c7d7b5ff8f14ccde01ec8b90f0ad30fc3460bea3@ec2-54-75-244-161.eu-west-1.compute.amazonaws.com:5432/d946juh433t2vl",
+        connection: "postgres://rmhgeteyoazdqd:b3f240b26bf37365047814dee2a93d097c64da0d94f232978dd9c75eba94d44b@ec2-46-137-124-19.eu-west-1.compute.amazonaws.com:5432/db18o9hs1il6po",
         pool: {
             min: 2,
             max: 10,

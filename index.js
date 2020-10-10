@@ -9,16 +9,16 @@ const {runMigrations, runSeed} =require('./database/connection/connection');
 const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('./swagger.json');
 
+
 app.use(express.json());
 app.disable('x-powered-by')
-
 runMigrations().then(r => {
     console.log('database migrate successfully');
 });
 
 runSeed().then(r=>{})
 
-app.use('/api/v1',[require('./router/user.route')]);
+app.use('/api/v1',[require('./router/index.router')]);
 app.use('/', swaggerUi.serve, swaggerUi.setup(swaggerDocument, { "showExplorer": true }));
 
 
